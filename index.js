@@ -2,16 +2,54 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 8081;
 
+let bodyParser = require("body-parser")
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
-app.get('/api/user', function(req,res){
-	var user_id = req.param('id');
-  	var token = req.param('token');
-  	var geo = req.param('penis');
-	res.send(user_id + ' ' + token + ' ' + geo);
+let csvdata = require('csvdata')
+
+let filePath = "./data.csv";
+let csvData = []
+
+
+app.use(express.static(__dirname+'/public'));
+
+function loadData(){
+	csvdata.load(filePath).then(function(data) {
+  	console.log(data);
+  	csvData = data;
+});
+}
+
+
+
+
+
+app.post('/', function(req,res){
+	var name = req.body.name;
+	var email = req.body.email;
+	var password = req.body.password;
+
+	data =[{name:name,email:email,password:password}];
+	csvdata.write(filePath,data,{append:'true',header:'name,email,password'}).then(function(data){
+		
+  		
+		});
+	
+	
+  	res.send(name);
 });
 
-app.get('/login', function(req,res){
-	res.sendFile(__dirname+"/index.html");
+app.get('/', function(req,res){
+	res.sendFile("/index.html");
+});
+
+app.get('/admin', function(req,res){
+		csvdata.load(filePath).then(function(data) {
+	  	csvData = data;
+	  	res.send(JSON.stringify(csvData));
+		});
+		
 });
 
 app.listen(port);

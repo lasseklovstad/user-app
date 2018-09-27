@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New User</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="user_login.js"></script>
+</head>
+<body>
+
+
+	<h1>Create new user</h1>
+
+	<form id ="createUser" action="/" method="POST" onsubmit="return validateInput(this)">
+		 Name: 
+		<input type="text" name="name">
+		 <br>E-mail: 
+		<input type="text" name="email">
+		<br>Password: 
+		<input type="password" name="password">
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
