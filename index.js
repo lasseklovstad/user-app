@@ -37,7 +37,7 @@ app.post('/', function(req,res){
 		});
 	
 	
-  	res.send(name);
+  	res.send('User succesfully added!');
 });
 
 app.get('/', function(req,res){
