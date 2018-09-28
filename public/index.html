@@ -4,23 +4,40 @@
 	<title>New User</title>
 	<meta charset="utf-8">
 	<script type="text/javascript" src="user_login.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 <body>
 
 
-	<h1>Create new user</h1>
+	<div class="flex-container">
+		<form action="/admin" method="GET">
+		<button>Admin</button>
+		<h1>Create new user</h1>
+		</form>
+		
+		
+		
 
 	<form id ="createUser" action="/" method="POST" onsubmit="return validateInput(this)">
-		 Name: 
-		<input type="text" name="name">
-		 <br>E-mail: 
-		<input type="text" name="email">
-		<br>Password: 
-		<input type="password" name="password">
+		<div> Name: 
+		<input type="text" name="name"></div>
+		<div>E-mail:
+		<input type="text" name="email"></div>
+		<div>Password: 
+		<input type="password" name="password"></div>
+		
+		 
+		
 		<input type="submit" value="Submit">
 	</form>
-	<form action="/admin" method="GET">
-		<button>Admin</button>
-	</form>
+
+
+
+
+	</div>
+
+
+	
 </body>
 </html>
