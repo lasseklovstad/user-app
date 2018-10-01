@@ -1,5 +1,12 @@
-const express = require('express');
-const app = express();
+
+var express = require('express');
+var app = express();
+
+// your express configuration here
+
+
+
+
 const port = process.env.PORT || 8081;
 
 let bodyParser = require("body-parser")
@@ -41,7 +48,10 @@ app.post('/', function(req,res){
 });
 
 app.get('/', function(req,res){
-	res.sendFile("/index.html");
+	res.sendFile(__dirname+"/index.html");
+});
+app.get('/pdf', function(req,res){
+	res.sendFile(__dirname+"/pdf.html");
 });
 
 app.get('/admin', function(req,res){
@@ -53,4 +63,4 @@ app.get('/admin', function(req,res){
 });
 
 app.listen(port);
-console.log('Server started! At http://localhost:' + port);
+//console.log('Server started! At http://localhost:' + port);

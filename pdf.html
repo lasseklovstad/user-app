@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Embedd PDF</title>
+	<script src="/js/PDFObject-master/pdfobject.js"></script>
+</head>
+<body>
+	<div id="example1"></div>
+	<a href="/js/web/viewer.html?file=%2Fpdf-sample.pdf">Open yourpdf.pdf with PDF.js</a>
+	<script>PDFObject.embed("pdf-sample.pdf", "#example1");</script>
+	<iframe width="800px" height="1400px" src="pdf-sample.pdf"></iframe>
+
+</body>
+</html>
